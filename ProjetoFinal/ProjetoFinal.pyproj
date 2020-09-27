@@ -30,6 +30,9 @@
     <Compile Include="Services\AuthFile.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Services\MyClassificationService.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Services\MyStreamListenerService.py">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +40,7 @@
   <ItemGroup>
     <Content Include="Controllers\requirements.txt" />
     <Content Include="LIWC2007_Portugues_win.dic" />
+    <Content Include="MachineLearningModel.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />

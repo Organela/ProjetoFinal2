@@ -13,9 +13,13 @@ class MyStreamListener(tweepy.StreamListener):
         pass
 
     def on_status(self, status):
+        global time
+
+        if time <= 0:
+            print("********A stream foi inicializada !!!*******")
         print(status.text)
         self.concatenateToWordsOfPosts(status.text)
-        global time
+        
         time = time + 1
         if time > 3 :
             print("***********Stream finalizada!!!***********")
@@ -38,7 +42,7 @@ class MyStreamListener(tweepy.StreamListener):
         myStreamListener = MyStreamListener()
         myStream = tweepy.Stream(auth = api.auth, listener=MyStreamListener())
 
-        postsRelated = myStream.filter(track=[searchedWord])
+        postsRelated = myStream.filter(track=[searchedWord], languages=["pt"])
         #print(myStream.filter(track=['python']))
         #print(postsRelated)
         #return postsRelated

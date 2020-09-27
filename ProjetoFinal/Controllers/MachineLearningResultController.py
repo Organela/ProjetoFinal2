@@ -3,6 +3,7 @@ This script runs the application using a development server.
 It contains the definition of routes and views for the application.
 """
 from Services.MyStreamListenerService import *
+from Services.MyClassificationService import *
 from flask import Flask
 app = Flask(__name__)
 
@@ -18,6 +19,7 @@ def getResult(searchedWord ):
         return "Retire os espaços em branco de sua busca!"
 
     myStreamListener = MyStreamListener()
+    myClassificationService = MyClassificationService()
 
     myStreamListener.streamPostsRelatedToSearch(searchedWord)
 
@@ -31,8 +33,11 @@ def getResult(searchedWord ):
 
     myDict = myStreamListener.openFileAndSaveDictOfWords()
 
-    for p in myDict:
-       print(p)
+    #for p in myDict:
+       #print(p)
+
+    myClassificationService.searchWordinMyDict(myDict)
+    
 
     return "Hello World!" + searchedWord 
 

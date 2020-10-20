@@ -2,7 +2,6 @@
 import tweepy
 from Services.AuthFile import *
 global time
-time = 0
 wordOfPosts = []
 #from DictionaryFile import *
 #Part 2 tutorial está explicando como vou definir o numero de tweets q eu vou ler
@@ -42,6 +41,11 @@ class MyStreamListener(tweepy.StreamListener):
 
         myStreamListener = MyStreamListener()
         myStream = tweepy.Stream(auth = api.auth, listener=MyStreamListener())
+
+        global time
+        time = 0
+        global wordOfPosts
+        wordOfPosts.clear()
 
         postsRelated = myStream.filter(track=[searchedWord], languages=["pt"]) #locations=[5.253824, -69.908963, -32.283039, -33.800944]
         #print(myStream.filter(track=['python']))

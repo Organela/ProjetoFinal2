@@ -26,12 +26,10 @@ class MyClassificationService():
         for word in wordOfPosts:
             for element in myDict:
                 if word == element["name"]:
-                    numberOfEmotions += element["numbers"]
-                
-               
+                    numberOfEmotions += element["numbers"]              
         
-        print("Numero relacionados as emoções")
-        print(numberOfEmotions)
+       #print("Numero relacionados as emoções")
+       #print(numberOfEmotions)
 
         return self.filterEmotionNumbers(numberOfEmotions) # vai ser chamado aqui
     
@@ -57,7 +55,7 @@ class MyClassificationService():
             if n == "22" or n == "128" or n == "129" or n == "130" or n == "134" or n == "360" or n == "121" or n == "122" or n == "123" or n == "125" or n == "148" or n == "355" or n == "356":
                filteredNumberOfEmotions.append(n)
         
-        print("Print de filteredNumberOfEmotions: " + str(filteredNumberOfEmotions))
+        #print("Print de filteredNumberOfEmotions: " + str(filteredNumberOfEmotions))
 
         return filteredNumberOfEmotions
     

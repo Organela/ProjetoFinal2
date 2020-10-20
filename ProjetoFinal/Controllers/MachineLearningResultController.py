@@ -11,9 +11,11 @@ app = Flask(__name__)
 wsgi_app = app.wsgi_app
 
 
-@app.route('/<searchedWord>')
+@app.route('/<searchedWord>', methods=['GET'])
 def getResult(searchedWord ):
     """Renders a sample page."""
+    if str(searchedWord) == "favicon.ico": # Se requisição for vazia
+        return "Requisição vazia"
 
     if searchedWord.isspace():
         return "Retire os espaços em branco de sua busca!"
@@ -38,6 +40,7 @@ def getResult(searchedWord ):
 
     myClassificationService.searchWordinMyDict(myDict) # search and set the numbers of emotions
     
+    print("\n******Fim de execucao*******")
 
     return str(myClassificationService.countEmotions())
 

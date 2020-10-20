@@ -26,7 +26,7 @@ def getResult(searchedWord ):
     #for word in wordOfPosts:
             #print("***WordArray****" + word)
 
-    mySortDict = myStreamListener.openFileAndSaveClassificationContent()
+    #mySortDict = myStreamListener.openFileAndSaveClassificationContent() nao esta sendo usado mais
 
     #for p in mySortDict:
        #print(p)
@@ -36,10 +36,12 @@ def getResult(searchedWord ):
     #for p in myDict:
        #print(p)
 
-    myClassificationService.searchWordinMyDict(myDict)
+    myClassificationService.searchWordinMyDict(myDict) # search and set the numbers of emotions
     
 
-    return "Hello World!" + searchedWord 
+    return str(myClassificationService.countEmotions())
+
+    #return "Print de: " + searchedWord
 
 
 if __name__ == '__main__':

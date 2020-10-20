@@ -32,8 +32,9 @@ class MyStreamListener(tweepy.StreamListener):
         #for word in wordOfPosts:
             #print("***WordArray****" + word)
         return
+
     @staticmethod
-    def streamPostsRelatedToSearch(searchedWord):
+    def streamPostsRelatedToSearch(searchedWord): # Stream de posts
         auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
         auth.set_access_token(ACCESS_TOKEN , ACCESS_TOKEN_SECRET)
 
@@ -42,13 +43,13 @@ class MyStreamListener(tweepy.StreamListener):
         myStreamListener = MyStreamListener()
         myStream = tweepy.Stream(auth = api.auth, listener=MyStreamListener())
 
-        postsRelated = myStream.filter(track=[searchedWord], languages=["pt"])
+        postsRelated = myStream.filter(track=[searchedWord], languages=["pt"]) #locations=[5.253824, -69.908963, -32.283039, -33.800944]
         #print(myStream.filter(track=['python']))
         #print(postsRelated)
         #return postsRelated
 
     @staticmethod
-    def openFileAndSaveClassificationContent():
+    def openFileAndSaveClassificationContent(): # Não está sendo usado mais
         fileList = open('LIWC2007_Portugues_win.dic', 'r').readlines(); #Open File and pass all its content to an array
         mySortDict = [] #Dict with word translation for emotions
         clasificationArray = []
@@ -58,7 +59,7 @@ class MyStreamListener(tweepy.StreamListener):
             if i > 64 :
                 break
             if i < 69 :
-                mySortDict.append(dict(name = None, number = None, classification= None))
+                mySortDict.append(dict(name = None, number = None))
                 clasificationArray = line.split()
 
                 for text in clasificationArray :
@@ -74,14 +75,14 @@ class MyStreamListener(tweepy.StreamListener):
         return mySortDict
 
     @staticmethod
-    def openFileAndSaveDictOfWords():    
+    def openFileAndSaveDictOfWords(): # Da pra ser otimizado    
         fileList = open('LIWC2007_Portugues_win.dic', 'r').readlines(); #Open File and pass all its content to an array
         myDict = [] #Dict with all words
         lineArray = [] 
         i = 0
         for line in fileList:
             if i > 66 :
-                myDict.append(dict(name = None, numbers= [], classification= None))
+                myDict.append(dict(name = None, numbers= []))
                 lineArray = line.split()
 
                 j = 0

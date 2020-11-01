@@ -33,16 +33,6 @@ class MyClassificationService():
 
         return self.filterEmotionNumbers(numberOfEmotions) # vai ser chamado aqui
     
-    #@staticmethod
-    #def writeEmotionNumbersInFile(self):
-    #    numberOfEmotions.append({
-    #        "numbers": ""+ numberOfEmotions,
-    #        "emotion": ""
-    #        })
-
-#        with open("data.txt", "w") as outfile:
-#            json.dump(data, outfile)
-#            print("\nËscrito no arquivo com sucesso")
 
     def filterEmotionNumbers(self, numberOfEmotions):# Implementar filtro de número de emoções
         if len(numberOfEmotions) <= 0:

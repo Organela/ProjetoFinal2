@@ -3,8 +3,8 @@ import tweepy
 from Services.AuthFile import *
 global time
 wordOfPosts = []
-#from DictionaryFile import *
-#Part 2 tutorial está explicando como vou definir o numero de tweets q eu vou ler
+
+#Escuta a API do Twitter e guarda os posts em um Array chamado "wordOfPosts"
 
 class MyStreamListener(tweepy.StreamListener):
        
@@ -48,35 +48,8 @@ class MyStreamListener(tweepy.StreamListener):
         wordOfPosts.clear()
 
         postsRelated = myStream.filter(track=[searchedWord], languages=["pt"]) #locations=[5.253824, -69.908963, -32.283039, -33.800944]
-        #print(myStream.filter(track=['python']))
-        #print(postsRelated)
-        #return postsRelated
 
-    @staticmethod
-    def openFileAndSaveClassificationContent(): # Não está sendo usado mais
-        fileList = open('LIWC2007_Portugues_win.dic', 'r').readlines(); #Open File and pass all its content to an array
-        mySortDict = [] #Dict with word translation for emotions
-        clasificationArray = []
-
-        i = 0
-        for line in fileList:
-            if i > 64 :
-                break
-            if i < 69 :
-                mySortDict.append(dict(name = None, number = None))
-                clasificationArray = line.split()
-
-                for text in clasificationArray :
-                    if text.isnumeric() == False :
-                        mySortDict[i]["name"] = text
-                        #print("Classificação: " + text)
-            
-                    if text.isnumeric() == True :
-                        mySortDict[i]["number"] = text
-                        #print("Número da classificação: " + text)
-            i = i + 1
-        
-        return mySortDict
+   
 
     @staticmethod
     def openFileAndSaveDictOfWords(): # Da pra ser otimizado    
@@ -110,23 +83,3 @@ class MyStreamListener(tweepy.StreamListener):
             i = i + 1
         return myDict
 
-# SERCH FOR WORD IN MYDICT
-
-#if __name__ == '__main__':
-
-#    myStreamListener = MyStreamListener()
-
-#    myStreamListener.streamPostsRelatedToSearch()
-    
-    #for word in wordOfPosts:
-        #print("Printando words " + word)
-
-#    mySortDict = myStreamListener.openFileAndSaveClassificationContent()
-
-#    for p in mySortDict:
-#        print(p)
-
-#    myDict = myStreamListener.openFileAndSaveDictOfWords()
-
-#    for p in myDict:
-#       print(p)

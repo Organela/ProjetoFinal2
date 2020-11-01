@@ -17,26 +17,12 @@ def getResult(searchedWord ):
     if str(searchedWord) == "favicon.ico": # Se requisição for vazia
         return "Requisição vazia"
 
-    if searchedWord.isspace():
-        return "Retire os espaços em branco de sua busca!"
-
     myStreamListener = MyStreamListener()
     myClassificationService = MyClassificationService()
 
     myStreamListener.streamPostsRelatedToSearch(searchedWord)
 
-    #for word in wordOfPosts:
-            #print("***WordArray****" + word)
-
-    #mySortDict = myStreamListener.openFileAndSaveClassificationContent() nao esta sendo usado mais
-
-    #for p in mySortDict:
-       #print(p)
-
     myDict = myStreamListener.openFileAndSaveDictOfWords()
-
-    #for p in myDict:
-       #print(p)
 
     myClassificationService.searchWordinMyDict(myDict) # search and set the numbers of emotions
     
@@ -44,7 +30,6 @@ def getResult(searchedWord ):
 
     return str(myClassificationService.countEmotions())
 
-    #return "Print de: " + searchedWord
 
 
 if __name__ == '__main__':

@@ -38,6 +38,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\SearchPage.html" />
+    <Content Include="App\SearchPage.js" />
     <Content Include="Controllers\requirements.txt" />
     <Content Include="LIWC2007_Portugues_win.dic" />
     <Content Include="Services\MachineLearningModelRelated\MachineLearningModel.json" />
@@ -45,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="App\" />
     <Folder Include="Services\" />
     <Folder Include="Services\MachineLearningModelRelated\" />
   </ItemGroup>

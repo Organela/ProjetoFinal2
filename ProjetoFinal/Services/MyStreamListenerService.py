@@ -16,7 +16,7 @@ class MyStreamListener(tweepy.StreamListener):
 
         if time <= 0:
             print("********A stream foi inicializada !!!*******")
-        print(status.text)
+        #print(status.text)
         self.concatenateToWordsOfPosts(status.text)
         
         time = time + 1

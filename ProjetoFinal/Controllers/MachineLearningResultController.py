@@ -5,14 +5,19 @@ It contains the definition of routes and views for the application.
 from Services.MyStreamListenerService import *
 from Services.MyClassificationService import *
 from flask import Flask
+from flask_cors import CORS
+from flask_jsonpify import jsonify
+
 app = Flask(__name__)
 
+CORS(app)
+
 # Make the WSGI interface available at the top level so wfastcgi can get it.
-wsgi_app = app.wsgi_app
+#wsgi_app = app.wsgi_app
 
 
 @app.route('/<searchedWord>', methods=['GET'])
-def getResult(searchedWord ):
+def getResult(searchedWord):
     """Renders a sample page."""
     if str(searchedWord) == "favicon.ico": # Se requisição for vazia
         return "Requisição vazia"
@@ -24,19 +29,27 @@ def getResult(searchedWord ):
 
     myDict = myStreamListener.openFileAndSaveDictOfWords()
 
-    myClassificationService.searchWordinMyDict(myDict) # search and set the numbers of emotions
+    b = myClassificationService.searchWordinMyDict(myDict) # search and set the numbers of emotions
     
     print("\n******Fim de execucao*******")
 
-    return str(myClassificationService.countEmotions())
+    a = myClassificationService.countEmotions()
+
+    #print(a)
+
+    return jsonify(myClassificationService.countEmotions())
 
 
 
 if __name__ == '__main__':
-    import os
-    HOST = os.environ.get('SERVER_HOST', 'localhost')
-    try:
-        PORT = int(os.environ.get('SERVER_PORT', '5555'))
-    except ValueError:
-        PORT = 5555
-    app.run(HOST, PORT)
+   import os
+   HOST = os.environ.get('SERVER_HOST', 'localhost')
+   try:
+       PORT = int(os.environ.get('SERVER_PORT', '5555'))
+   except ValueError:
+       PORT = 5555
+   app.run(HOST, PORT)
+
+#port = 54703
+#app.run(host='0.0.0.0', port=port)
+   

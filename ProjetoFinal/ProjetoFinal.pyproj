@@ -38,6 +38,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\SearchPage.css" />
     <Content Include="App\SearchPage.html" />
     <Content Include="App\SearchPage.js" />
     <Content Include="Controllers\requirements.txt" />

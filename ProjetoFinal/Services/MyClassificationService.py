@@ -103,20 +103,20 @@ class MyClassificationService():
             if n == "356":
                countLeisure+=1
 
-        countDict.append(dict(name="countSwear", count = countSwear))
-        countDict.append(dict(name="countAnx", count = countAnx))
-        countDict.append(dict(name="countAnger", count = countAnger))
-        countDict.append(dict(name="countSad", count = countSad))
-        countDict.append(dict(name="countDiscrep", count = countDiscrep))
-        countDict.append(dict(name="countDeath", count = countDeath))
+        countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de xingamentos", count = countSwear))
+        countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de ansiedade", count = countAnx))
+        countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de raiva", count = countAnger))
+        countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de tristreza", count = countSad))
+        countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de discrepância", count = countDiscrep))
+        countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de morte", count = countDeath))
 
-        countDict.append(dict(name="countSocial", count = countSocial))
-        countDict.append(dict(name="countFamily", count = countFamily))
-        countDict.append(dict(name="countFriend", count = countFriend))
-        countDict.append(dict(name="countAffect", count = countAffect))
-        countDict.append(dict(name="countHealth", count = countHealth))
-        countDict.append(dict(name="countAchieve", count = countAchieve))
-        countDict.append(dict(name="countLeisure", count = countLeisure))
+        countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de social", count = countSocial))
+        countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de familia", count = countFamily))
+        countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de amizade", count = countFriend))
+        countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de afeito", count = countAffect))
+        countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de vida", count = countHealth))
+        countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de realização", count = countAchieve))
+        countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de lazer", count = countLeisure))
 
         return countDict
 

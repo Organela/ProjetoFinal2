@@ -3,6 +3,7 @@ import json
 
 class MyClassificationService():
     """description of class """
+    global numberOfEmotions
     numberOfEmotions = []
     global filteredNumberOfEmotions
     filteredNumberOfEmotions = []
@@ -16,12 +17,22 @@ class MyClassificationService():
             
     #Comparar palavras dos posts com as do liwic e retornar números que demostram as emocoes das palavras/
 
+    def makeArrayEmotionsEmpty(self):
+        global numberOfEmotions
+        global filteredNumberOfEmotions
+
+        if len(numberOfEmotions) > 0 or len(filteredNumberOfEmotions) > 0:
+            numberOfEmotions[:] = []
+            filteredNumberOfEmotions[:] = []
+
     def searchWordinMyDict(self, myDict):
+        
+        self.makeArrayEmotionsEmpty()
+
         if len(myDict) <= 0:
             print("Dicionario esta vazio")
         
         global numberOfEmotions
-        numberOfEmotions = []
     
         for word in wordOfPosts:
             for element in myDict:

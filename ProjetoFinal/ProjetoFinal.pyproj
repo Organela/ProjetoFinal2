@@ -43,14 +43,13 @@
     <Content Include="App\SearchPage.js" />
     <Content Include="Controllers\requirements.txt" />
     <Content Include="LIWC2007_Portugues_win.dic" />
-    <Content Include="Services\MachineLearningModelRelated\MachineLearningModel.json" />
-    <Content Include="Services\MachineLearningModelRelated\SortingBetweenPositiveAndNegative.txt" />
+    <Content Include="Services\EmoçõesUteis\SortingBetweenPositiveAndNegative.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="App\" />
     <Folder Include="Services\" />
-    <Folder Include="Services\MachineLearningModelRelated\" />
+    <Folder Include="Services\EmoçõesUteis\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 

@@ -122,7 +122,7 @@ class MyClassificationService():
         countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de morte", count = countDeath))
 
         countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de social", count = countSocial))
-        countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de familia", count = countFamily))
+        countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de família", count = countFamily))
         countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de amizade", count = countFriend))
         countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de afeito", count = countAffect))
         countDict.append(dict(name="Quantidade de ocorrencia de sentimentos de vida", count = countHealth))
